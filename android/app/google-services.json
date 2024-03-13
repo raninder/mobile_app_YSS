@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687392638647",
+    "project_id": "test-yss",
+    "storage_bucket": "test-yss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687392638647:android:31173f7f9af87a6b792f32",
+        "android_client_info": {
+          "package_name": "com.testyss"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCanTzl_IYx5i2_KEDpO15XzIk8ZhOnXkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
