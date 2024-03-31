@@ -1,0 +1,107 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdb0ad43f2, pid=17300, tid=7840
+#
+# JRE version: OpenJDK Runtime Environment OpenLogic-OpenJDK (17.0.10+7) (build 17.0.10+7-adhoc..jdk17u)
+# Java VM: OpenJDK 64-Bit Server VM OpenLogic-OpenJDK (17.0.10+7-adhoc..jdk17u, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [ntdll.dll+0x643f2]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://techsupport.roguewave.com/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:MaxMetaspaceSize=512m --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx2048m -Dfile.encoding=windows-1252 -Duser.country=CA -Duser.language=en -Duser.variant -javaagent:C:\Users\rgill\.gradle\wrapper\dists\gradle-8.3-all\6en3ugtfdg5xnpx44z4qbwgas\gradle-8.3\lib\agents\gradle-instrumentation-agent-8.3.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.3
+
+Host: Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sun Mar 17 09:38:47 2024 Eastern Daylight Time elapsed time: 336.771812 seconds (0d 0h 5m 36s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000194238b3160):  JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7840, stack(0x0000007ce8100000,0x0000007ce8200000)]
+
+Stack: [0x0000007ce8100000,0x0000007ce8200000],  sp=0x0000007ce81ff958,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ntdll.dll+0x643f2]
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), writing address 0x0000007ce51ff6a0
+
+
+Registers:
+RAX=0x0000007ce81ff988, RBX=0x0000007ce51ff690, RCX=0x0000007ce81ff980, RDX=0x0000007ce81ff980
+RSP=0x0000007ce81ff958, RBP=0x0000007ce81ff9b0, RSI=0x0000007ce81ff988, RDI=0x0000000000000000
+R8 =0x0000007ce51ff690, R9 =0x0000019455060ab0, R10=0x0000019455060ab0, R11=0x000001941f0ba760
+R12=0x0000007ce81ffa18, R13=0x0000019423ac5700, R14=0x0000019455060a88, R15=0x0000019455060ab0
+RIP=0x00007ffdb0ad43f2, EFLAGS=0x0000000000010246
+
+
+Register to memory mapping:
+
+RIP=0x00007ffdb0ad43f2 ntdll.dll
+RAX=0x0000007ce81ff988 is pointing into the stack for thread: 0x00000194238b3160
+RBX=0x0000007ce51ff690 is pointing into the stack for thread: 0x0000019475fa9280
+RCX=0x0000007ce81ff980 is pointing into the stack for thread: 0x00000194238b3160
+RDX=0x0000007ce81ff980 is pointing into the stack for thread: 0x00000194238b3160
+RSP=0x0000007ce81ff958 is pointing into the stack for thread: 0x00000194238b3160
+RBP=0x0000007ce81ff9b0 is pointing into the stack for thread: 0x00000194238b3160
+RSI=0x0000007ce81ff988 is pointing into the stack for thread: 0x00000194238b3160
+RDI=0x0 is NULL
+R8 =0x0000007ce51ff690 is pointing into the stack for thread: 0x0000019475fa9280
+R9 =0x0000019455060ab0 points into unknown readable memory: 0x0000007ce81ff98f | 8f f9 1f e8 7c 00 00 00
+R10=0x0000019455060ab0 points into unknown readable memory: 0x0000007ce81ff98f | 8f f9 1f e8 7c 00 00 00
+R11={method} {0x000001941f0ba768} 'a' '(Lcom/android/tools/r8/internal/hl;Lcom/android/tools/r8/internal/O8;Lcom/android/tools/r8/internal/B8;)V' in 'com/android/tools/r8/internal/z6'
+R12=0x0000007ce81ffa18 is pointing into the stack for thread: 0x00000194238b3160
+R13=0x0000019423ac5700 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+R14=0x0000019455060a88 points into unknown readable memory: 0x000001947a112250 | 50 22 11 7a 94 01 00 00
+R15=0x0000019455060ab0 points into unknown readable memory: 0x0000007ce81ff98f | 8f f9 1f e8 7c 00 00 00
+
+
+Top of Stack: (sp=0x0000007ce81ff958)
+0x0000007ce81ff958:   00007ffdb0ad43c3 00000194214f3a80
+0x0000007ce81ff968:   00007ffd5225dab3 0000007ce51ff690
+0x0000007ce81ff978:   0000007ce81ff988 0000007ce51ff690
+0x0000007ce81ff988:   0000000000000000 0000000000000000
+0x0000007ce81ff998:   0000000000001ea0 0000000200000000
+0x0000007ce81ff9a8:   0000000000000000 0000000000000003
+0x0000007ce81ff9b8:   0000019455060a80 0000000000000020
+0x0000007ce81ff9c8:   00007ffdae2638b9 00000000fffffffd
+0x0000007ce81ff9d8:   00000194238b3160 000001942190d290
+0x0000007ce81ff9e8:   0000000000001388 00000000fffffffd
+0x0000007ce81ff9f8:   00007ffd5226cdb9 000000008447f6a8
+0x0000007ce81ffa08:   00007ffd51de68f5 000001945511ce40
+0x0000007ce81ffa18:   fffffffffd050f80 0000000000000002
+0x0000007ce81ffa28:   00007ffd5223e071 0000019475f2ae50
+0x0000007ce81ffa38:   00007ffd51ffdfed 00000194250f7160
+0x0000007ce81ffa48:   000001942190de90 0000007ce81ffac0
+0x0000007ce81ffa58:   00000194238b3160 0000007ce81ffa50
+0x0000007ce81ffa68:   00007ffd5223dd00 000070b85f0bfd29
+0x0000007ce81ffa78:   0000019455060a80 0000019475f2ad80
+0x0000007ce81ffa88:   0000000000000004 0000000000000003
+0x0000007ce81ffa98:   0000019455060a80 0000000000000050
+0x0000007ce81ffaa8:   0000019475f37df0 000001942af5bc78
+0x0000007ce81ffab8:   00007ffd51e17a08 0000000000000000
+0x0000007ce81ffac8:   0000019423c58220 0000019423c58220
+0x0000007ce81ffad8:   0000000000000020 0000019475f2ae50
+0x0000007ce81ffae8:   0000000000000000 00000194238b3160
+0x0000007ce81ffaf8:   0000019423c58220 0000000000000000
+0x0000007ce81ffb08:   0000000000000000 0000000000000000
+0x0000007ce81ffb18:   0000000000000000 0000019455060f90
+0x0000007ce81ffb28:   000001942190da50 0000019423c58220
+0x0000007ce81ffb38:   0000019475f37df0 0000000000000050
+0x0000007ce81ffb48:   0000000000000000 0000019423c58220 
+
+Instructions: (pc=0x00007ffdb0ad43f2)
+0x00007ffdb0ad42f2:   48 8b c3 f0 49 0f b1 37 0f 85 ea aa 05 00 49 8b
+0x00007ffdb0ad4302:   ce e8 28 af fc ff 40 8a c6 32 c3 a8 08 0f 85 a3
+0x00007ffdb0ad4312:   00 00 00 8b 1d 19 69 10 00 41 b8 01 00 00 00 66
+0x00007ffdb0ad4322:   44 39 04 25 6a 03 fe 7f 76 31 40 38 3c 25 97 02
+0x00007ffdb0ad4332:   fe 7f 0f 85 b8 aa 05 00 0f b7 0c 25 d6 02 fe 7f
+0x00007ffdb0ad4342:   33 d2 8b c3 f7 f1 8b d7 8b 4d f4 f6 c1 02 74 0b
+0x00007ffdb0ad4352:   3b d0 74 07 f3 90 41 03 d0 eb ed 48 8d 45 f4 8b
+0x00007ffdb0ad4362:   df 

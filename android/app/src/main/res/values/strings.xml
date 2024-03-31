@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">testYSS</string>
+    <string name="facebook_app_id">3052483351553259</string>
+   
+<string name="fb_login_protocol_scheme">fb3052483351553259</string>
+<string name="facebook_client_token">9809ee2956be017f5b01f4e89ec36eea</string>
+<string name="facebook_app_name">testyss</string>
 </resources>
