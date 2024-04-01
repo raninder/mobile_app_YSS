@@ -11,6 +11,7 @@ import {
   SubmitBtn,
   SubmitBtnText,
  } from '../styles/AddPost';
+ import MaskInput from 'react-native-mask-input';
 
 import {
   GestureHandlerRootView,
@@ -50,16 +51,24 @@ const EditProfile = ({navigation}) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [userData, setUserData] = useState([]);
  
-  const phoneFormat = (phNumber) => {
-    var match = phNumber.match(/(\d{3})(\d{3})(\d{4})$/)
+  const phoneFormat = (val) => {
+    console.log("phnumber1", val)
+    // var match = phNumber.match(/(\d{3})(\d{3})(\d{4})$/)
 
-    if (match) {
-        number = [match[1], '- ', match[2], '-', match[3]].join('');
-         setPhone(number);
-        return;
-    }
+    // if (match) {
+    //     number = [match[1], '- ', match[2], '-', match[3]].join('');
+    //      setPhone(number);
+    //     return;
+    // }
 
-    setPhone(phNumber);
+    // setPhone(phNumber);
+    val = val.replace(/ /gm, '');
+    console.log("phnumber2", val)
+
+    let num = `${val.substring(0, 3)} ${val.substring(3, 6)} ${val.substring(6, val.length)}`;
+
+    num = num.trim();
+    setPhone(num)
   }
  
   useEffect(() => {
@@ -77,10 +86,14 @@ const EditProfile = ({navigation}) => {
     console.log("userData2", userData)
 
     const handleUpdate = async() => {
-      const imgUrl = await uploadImage();
+     let imgUrl = await uploadImage();
+      console.log("imgurl1", imgUrl)
+      console.log("userImg db", userData.userImg)
       if( imgUrl == null && userData.userImg) {
         imgUrl = userData.userImg;
       }
+      console.log("imgurl2", imgUrl)
+      console.log("phone", phone)
     firestore().collection('users').doc(auth().currentUser.uid)
       .update({
           businessName: userData.businessName,
@@ -124,8 +137,10 @@ const EditProfile = ({navigation}) => {
 
   const uploadImage = async () => {
     if( image == null ) {
+      console.log("img", image)
       return null;
     }
+    // console.log("img", image)
     const uploadUri = image;
     let filename = uploadUri.substring(uploadUri.lastIndexOf('/') + 1);
 
@@ -260,22 +275,36 @@ const uploadFile = () => {
               value={userData ? userData.email : ''}
               onChangeText={(txt) => setUserData({...userData, lastName: txt})}
             />
-            <TextInput
-              placeholder='Phone'
+            {/* <TextInput
+              placeholder='Phone(111-111-1111)'
               style={styles.inputSmall}
               value={userData ? userData.phone : ''}
-              onChangeText={(phNumber) => setUserData({...userData, phone:phoneFormat(phNumber)})}
+              // onChangeText={(phNumber) => setUserData({...userData, phone:phoneFormat(phNumber)})}
+              onChangeText={(phNumber) => setUserData({...userData, phone:phNumber})}
              
+            /> */}
+            <MaskInput
+               placeholder='Phone'
+               style={styles.inputSmall}
+               value={userData ? userData.phone : ''}
+               onChangeText={(masked, unmasked) => {
+                // setPhone(masked); // you can use the unmasked value as well
+                setUserData({...userData, phone:masked})
+                // assuming you typed "9" all the way:
+                console.log(masked); // (99) 99999-9999
+                console.log(unmasked); // 99999999999
+              }}
+              mask={[/\d/, /\d/, /\d/, ' -', /\d/, /\d/, /\d/, ' -',/\d/, /\d/, /\d/, /\d/]}
             />
+            </View>
             <TextInput
               placeholder='Needs'
-              style={styles.inputSmall}
+              style={styles.input}
               value={userData ? userData.needs : ''}
               onChangeText={(txt) => setUserData({...userData, needs:txt})}
              
             />
-         </View>
-        
+             
               
       </View> 
       {/* <UploadFile /> */}

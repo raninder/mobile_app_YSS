@@ -8,6 +8,7 @@ import  FontAwesome5  from 'react-native-vector-icons/FontAwesome5';
 import ImagePicker from 'react-native-image-crop-picker';
 import DocumentPicker from 'react-native-document-picker';
 import storage, {uploadBytesResumable, getDownloadURL} from '@react-native-firebase/storage';
+import MaskInput from 'react-native-mask-input';
 
 import {
    SubmitBtn,
@@ -269,13 +270,15 @@ const uploadFile = () => {
               value={value.email}
               onChangeText={(text) => setValue({ ...value, email: text })}
             />
-            <TextInput
-              placeholder='Phone'
-              style={styles.inputSmall}
-              value={value.phone}
-              onChangeText={phNumber => phoneFormat(phNumber) }
+            
+            <MaskInput
+               placeholder='Phone'
+               style={styles.inputSmall}
+               value={value.phone}
+               onChangeText={(masked, unmasked) => setValue({...value, phone:masked }) }
+              mask={[/\d/, /\d/, /\d/, ' -', /\d/, /\d/, /\d/, ' -',/\d/, /\d/, /\d/, /\d/]}
             />
-         </View>
+          </View>
         
             <View>
                 <TextInput

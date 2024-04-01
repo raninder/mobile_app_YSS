@@ -54,7 +54,7 @@ export default function UserStack() {
               headerRight:()=>(
                 <View>
                 <View style={{width:100, }}>
-                    <Button title="Home" onPress={()=> navigation.navigate('profile')}></Button>
+                    <Button title="Home" color='#734A4B'onPress={()=> navigation.navigate('profile')}></Button>
                    
                 </View>
                 {/* <Header /> */}

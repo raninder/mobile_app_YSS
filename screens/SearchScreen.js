@@ -119,13 +119,13 @@ export default function SearchScreen({navigation}) {
     <View style={{flexDirection:'row'}}>
         <Text style={styles.text}>Contacts</Text>
         <Pressable onPress={()=> setMode('grid')}>
-         <Text style={{textDecorationLine: 'underline', marginLeft:60, fontSize:16}}>Grid</Text>
+         <Text style={{textDecorationLine: 'underline', marginLeft:60, fontSize:16,fontWeight:'bold', color:'#71bb23'}}>Grid</Text>
         </Pressable>
         <Pressable onPress={()=> setMode('list')}>
-         <Text style={{textDecorationLine: 'underline', marginLeft:10, fontSize:16}}>List</Text>
+         <Text style={{textDecorationLine: 'underline', marginLeft:10, fontSize:16,fontWeight:'bold', color:'#71bb23'}}>List</Text>
         </Pressable>
         <Pressable onPress={()=> setMode('cluster')}>
-         <Text style={{textDecorationLine: 'underline', marginLeft:10, fontSize:16}}>Cluster</Text>
+         <Text style={{textDecorationLine: 'underline', marginLeft:10, fontSize:16,fontWeight:'bold', color:'#71bb23'}}>Cluster</Text>
         </Pressable>
     </View>
     <View
@@ -147,7 +147,7 @@ export default function SearchScreen({navigation}) {
           }}
           style={styles.searchBox}
         />
-      <Button title="seacrh" onPress={handleSearch}></Button>
+      <Button title="seacrh" color='#734A4B' onPress={handleSearch}></Button>
       {clicked && (
           <TouchableOpacity onPress={()=>{
             setInput("")

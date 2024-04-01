@@ -25,7 +25,9 @@ const LoginScreen = ({navigation}) => {
         source={require('../assets/logo.png')}
         style={styles.logo}
       />
-      
+
+      <Text style={styles.logoText}>Your <Text style={{color:'#734A4B'}}>Sweet </Text>Spot Life</Text>
+      <Text style={{color:'#734A4B', fontSize:13, fontWeight:'bold',marginBottom:20}}>THE STORY OF LIFE AND THE LIFE BEHIND THE STORY</Text>
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
@@ -55,7 +57,7 @@ const LoginScreen = ({navigation}) => {
           <SocialButton
             buttonTitle="Sign In with Facebook"
             btnType="facebook"
-            color="#4867aa"
+            color="#734A4B"
             backgroundColor="#e6eaf4"
             onPress={() => fbLogin()}
           />
@@ -63,7 +65,7 @@ const LoginScreen = ({navigation}) => {
           <SocialButton
             buttonTitle="Sign In with Google"
             btnType="google"
-            color="#de4d41"
+            color='#734A4B'
             backgroundColor="#f5e7ea"
             onPress={() => googleLogin()}
           />
@@ -92,9 +94,15 @@ const styles = StyleSheet.create({
     paddingTop: 50
   },
   logo: {
-    height: 150,
-    width: 150,
+    height: 160,
+    width: 160,
     resizeMode: 'cover',
+  },
+  logoText:{
+    color:'#71bb23',
+    fontSize:34,
+    fontWeight:'bold',
+    marginBottom:10
   },
   text: {
     fontFamily: 'Kufam-SemiBoldItalic',
@@ -111,7 +119,8 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 18,
     fontWeight: '500',
-    color: '#2e64e5',
+    // color: '#2e64e5',
+    color: '#e88832',
     fontFamily: 'Lato-Regular',
   },
 });

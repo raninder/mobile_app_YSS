@@ -45,7 +45,7 @@ export default function Profile({navigation}) {
           }}>  
         <View style={styles.modalView}> 
            <View>
-              <Button title="Create Profile"  onPress={()=> navigation.navigate('createProfile')}></Button>
+              <Button title="Create Profile" color='#734A4B' onPress={()=> navigation.navigate('createProfile')}></Button>
             </View>
          
          </View>  
@@ -93,7 +93,7 @@ export default function Profile({navigation}) {
                   ):
                   navigation.navigate('createProfile')}
 
-                 <Button title="Edit Profile" onPress={()=> navigation.navigate('EditProfile')}></Button>
+                 <Button title="Edit Profile"  color="#734A4B" onPress={()=> navigation.navigate('EditProfile')}></Button>
 
              </View>
 

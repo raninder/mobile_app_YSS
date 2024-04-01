@@ -67,7 +67,8 @@ const SignupScreen = ({navigation}) => {
           <SocialButton
             buttonTitle="Sign Up with Facebook"
             btnType="facebook"
-            color="#4867aa"
+            // color="#4867aa"
+            color='#734A4B'
             backgroundColor="#e6eaf4"
             onPress={() => {}}
           />
@@ -75,7 +76,8 @@ const SignupScreen = ({navigation}) => {
           <SocialButton
             buttonTitle="Sign Up with Google"
             btnType="google"
-            color="#de4d41"
+            // color="#de4d41"
+            color='#734A4B'
             backgroundColor="#f5e7ea"
             onPress={() => {}}
           />
@@ -113,7 +115,8 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 18,
     fontWeight: '500',
-    color: '#2e64e5',
+    // color: '#2e64e5',
+    color: '#e88832',
     fontFamily: 'Lato-Regular',
   },
   textPrivate: {
